@@ -1,5 +1,9 @@
 package frc.friarLib3.Scheduling;
 
-public class GameStage
+public enum GameStage
 {
+    TELEOP,
+    AUTONOMOUS,
+    TEST,
+    DISABLED
 }
