@@ -7,7 +7,7 @@ public class InterpolationUtil
 {
     private static final boolean UseLinearWeights = false;
 
-    public static Translation2d InterpolateTranslation(List<VisioninterpolationData> dataPoints, Translation2d visionInput)
+    public static Translation2d InterpolateTranslation(List<VisionInterpolationData> dataPoints, Translation2d visionInput)
     {
         var unnormalizedWeightsSum =
             dataPoints.stream()

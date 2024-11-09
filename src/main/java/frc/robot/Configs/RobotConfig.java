@@ -11,6 +11,7 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.config.BaseConfig;
 
+import com.revrobotics.spark.config.SparkBaseConfig;
 import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
 
@@ -27,7 +28,7 @@ public record RobotConfig(
     QueuerConfig queuer,
     SwerveConfig swerve,
     IMUConfig imu,
-    VisionConfig vison,
+    VisionConfig vision,
     PerfToggles perfToggles)
 {
     public record ShooterConfig(
@@ -40,23 +41,24 @@ public record RobotConfig(
     public record ClimbConfig(
         int LeftMotorID,
         int RightMotorID,
+        double HomingCurrentThreshold, // TODO: Figure out what this is
+        double HomingVoltage, // TODO: Figure out what this is
         double MinDistance,
         double MaxDistance,
+        double RotationsToDistance,
+        double DistanceTolerance,
         TalonFXConfiguration LeftMotorConfig,
         TalonFXConfiguration RightMotorConfig
     ) {}
 
     public record IntakeConfig(
         int MotorID,
-        int SensorID,
         Debouncer Debouncer,
         int CurrentSpikeCount,
         TalonFXConfiguration MotorConfig
     ) {}
 
-    public record QueuerConfig(
-        int MotorID, int SensorID, Debouncer Debouncer, int CurrentSpikeCount, BaseConfig MotorConfig
-    ) {}
+    public record QueuerConfig( int MotorID, Debouncer Debouncer, int CurrentSpikeCount ) {}
 
     public record IMUConfig(
         int DeviceID, Consumer<InterpolatingDoubleTreeMap> distanceToAngleTolerance

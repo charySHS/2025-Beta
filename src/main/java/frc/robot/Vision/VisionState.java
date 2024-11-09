@@ -1,5 +1,8 @@
 package frc.robot.Vision;
 
-public class VisionState
+public enum VisionState
 {
+    Offline,
+    OnlineNoTags,
+    SeesTags;
 }

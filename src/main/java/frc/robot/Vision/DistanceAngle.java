@@ -1,5 +1,3 @@
 package frc.robot.Vision;
 
-public class DistanceAngle
-{
-}
+public record DistanceAngle(double distance, double targetAngle, boolean seesSpeakerTag) {}
